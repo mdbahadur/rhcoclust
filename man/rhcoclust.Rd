@@ -2,7 +2,7 @@
 \alias{rhcoclust}
 \title{The function for co-clustering sample and feature to explore significant samples and their regulatory features}
 \usage{
-rhcoclust(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
+rhcoclust(data, rk, ck, method.dist="manhattan", method.hclust="ward.D")
 }
 \arguments{
 \item{data}{A data matrix containing data having the characteristics of interval and ratio level of measurement or continuous data}
@@ -102,7 +102,7 @@ ColorQC <- CoClustObj$color
 # Shape of points to generate individual control chart.
 PcmQC <- CoClustObj$pchmark
 
-# Plot the results
+# Plot the results (out put objects from rhcoclust)
 plot_rhcoclust (CoClustObj)
 
 }

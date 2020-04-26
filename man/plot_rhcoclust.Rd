@@ -43,6 +43,6 @@ GCmat <- toxygates_data
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
 CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist="manhattan",method.hclust="ward.D")
 
-# Plot the results
+# Plot the results (out put objects from rhcoclust)
 plot_rhcoclust (CoClustObj)
 }
