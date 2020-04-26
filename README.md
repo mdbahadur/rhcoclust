@@ -6,9 +6,7 @@ Development of the R package rhcoclust is at https://github.com/mdbahadur/rhcocl
 
 References:
   
-1. Mohammad Nazmol Hasan, Md. Bahadur Badsha and Md. Nurul Haque Mollah (2020) 
-with the principle of Mendelian randomization. Frontiers in Genetics 2019,
-10(460).
+1. Mohammad Nazmol Hasan, Md. Bahadur Badsha and Md. Nurul Haque Mollah. 
 
 ## Installation
 
