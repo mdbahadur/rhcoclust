@@ -1,6 +1,6 @@
 \name{plot_rhcoclust}
 \alias{plot_rhcoclust}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{
 Plot of the rhcoclust objects
 }
