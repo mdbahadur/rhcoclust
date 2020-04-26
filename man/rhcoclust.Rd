@@ -2,7 +2,7 @@
 \alias{rhcoclust}
 \title{The function for co-clustering sample and feature to explore significant samples and their regulatory features}
 \usage{
-rhcoclust(data, rk, ck, method="manhattan")
+rhcoclust(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
 }
 \arguments{
 \item{data}{A data matrix containing data having the characteristics of interval and ratio level of measurement or continuous data}
@@ -11,8 +11,11 @@ rhcoclust(data, rk, ck, method="manhattan")
 
 \item{ck}{Number of clusters in the column entities of the data matrix}
 
-\item{method}{The distance measure to be used. The default is "manhattan". The other options are "euclidean", "maximum", "canberra", "binary" or "minkowski". Any unambiguous substring can be given.}
+\item{method.dist}{The distance measure to be used. The default is "manhattan". The other options are "euclidean", "maximum", "canberra", "binary" or "minkowski". Any unambiguous substring can be given.}
+
+\item{method.hclust}{The agglomeration method to be used. The default is "ward.D". The other options are "ward.D2", "single", "complete", "average" (= UPGMA), "mcquitty" (= WPGMA), "median" (= WPGMC) or "centroid" (= UPGMC).}
 }
+
 \value{
 A \link{list} of object that containing the following:
 
@@ -60,7 +63,7 @@ data("simu_data")
 GCmat <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3)
+CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist="manhattan",method.hclust="ward.D")
 
 # A data frame containing combination of row and column cluster number in the first
 # column and their ranked co-cluster mean in the second cluster.
