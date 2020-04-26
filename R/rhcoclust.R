@@ -4,15 +4,15 @@
 #' @importFrom graphics abline image mtext par plot text
 
 #' @export
-rhcoclust <- function(data, rk, ck, method="manhattan")
+rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
 {
   # Data Transformation using logistic function
   dataExpr <- 100*(1/(1+exp(-data)))
-  dG <- dist((dataExpr), method = method)
-  dC <- dist(t(dataExpr), method = method)
-
-  HCGene <- hclust(dG, method = "ward.D")
-  HCComp <- hclust(dC, method = "ward.D")
+  dG <- dist((dataExpr), method = method.dist)
+  dC <- dist(t(dataExpr), method = method.dist)
+  # Hierarchical cluster analysis on a set of dissimilarities and methods for analyzing it.
+  HCGene <- hclust(dG, method = method.hclust)
+  HCComp <- hclust(dC, method = method.hclust)
   # rk row clusters estimated observing dendrogram
   HCclsMatG <- as.matrix(cutree(HCGene, rk))
   # ck column clusters estimated observing dendrogram
