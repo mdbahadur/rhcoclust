@@ -2,10 +2,10 @@
 \alias{plot_rhcoclust}
 
 \title{
-Plot of the rhcoclust objects
+Plot of the 'rhcoclust' objects
 }
 \description{
-This function used for two plots from rhcoclust (i) plot results for gene (row) and compound (column) co-cluster graph, and (ii) plot graph of QCC for identification of biomarker co-cluster.
+This function used for two plots from output of rhcoclust (i) plot results for gene (row) and compound (column) co-cluster graph, and (ii) plot graph of QCC for identification of biomarker co-cluster.
 }
 \usage{
 plot_rhcoclust(CoClustObj)
