@@ -4,12 +4,12 @@
 #' @importFrom graphics abline image mtext par plot text
 
 #' @export
-rhcoclust <- function(data, rk, ck)
+rhcoclust <- function(data, rk, ck, method="manhattan")
 {
   # Data Transformation using logistic function
   dataExpr <- 100*(1/(1+exp(-data)))
-  dG <- dist((dataExpr), method = "manhattan")
-  dC <- dist(t(dataExpr), method = "manhattan")
+  dG <- dist((dataExpr), method = method)
+  dC <- dist(t(dataExpr), method = method)
 
   HCGene <- hclust(dG, method = "ward.D")
   HCComp <- hclust(dC, method = "ward.D")

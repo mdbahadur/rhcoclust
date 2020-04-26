@@ -2,7 +2,7 @@
 \alias{rhcoclust}
 \title{The function for co-clustering sample and feature to explore significant samples and their regulatory features}
 \usage{
-rhcoclust(data, rk, ck)
+rhcoclust(data, rk, ck, method="manhattan")
 }
 \arguments{
 \item{data}{A data matrix containing data having the characteristics of interval and ratio level of measurement or continuous data}
@@ -10,6 +10,8 @@ rhcoclust(data, rk, ck)
 \item{rk}{Number of clusters in the row entities of the data matrix}
 
 \item{ck}{Number of clusters in the column entities of the data matrix}
+
+\item{method}{The distance measure to be used. The default is "manhattan". The other options are "euclidean", "maximum", "canberra", "binary" or "minkowski". Any unambiguous substring can be given.}
 }
 \value{
 A \link{list} of object that containing the following:
