@@ -8,13 +8,20 @@ Plot of the 'rhcoclust' objects
 This function used for two plots from output of rhcoclust (i) plot results for gene (row) and compound (column) co-cluster graph, and (ii) plot graph of QCC for identification of biomarker co-cluster.
 }
 \usage{
-plot_rhcoclust(CoClustObj)
+plot_rhcoclust(CoClustObj, plot.cocluster = FALSE, plot.icc = FALSE)
 }
 
 \arguments{
   \item{CoClustObj}{
 Output objects from rhcoclust
 }
+\item{plot.cocluster}{
+To set no plotting as the default for cocluster.
+}
+\item{plot.icc}{
+To set no plotting as the default for icc.
+}
+
 }
 
 \value{
@@ -41,8 +48,10 @@ data("simu_data")
 GCmat <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist="manhattan",method.hclust="ward.D")
+CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
 
-# Plot the results (out put objects from rhcoclust)
-plot_rhcoclust (CoClustObj)
+# Plot co-cluster
+plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.icc = FALSE)
+# Plot ICC
+plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.icc = TRUE)
 }

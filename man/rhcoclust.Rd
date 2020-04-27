@@ -63,7 +63,7 @@ data("simu_data")
 GCmat <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist="manhattan",method.hclust="ward.D")
+CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist= "manhattan", method.hclust = "ward.D")
 
 # A data frame containing combination of row and column cluster number in the first
 # column and their ranked co-cluster mean in the second cluster.
@@ -102,7 +102,8 @@ ColorQC <- CoClustObj$color
 # Shape of points to generate individual control chart.
 PcmQC <- CoClustObj$pchmark
 
-# Plot the results (out put objects from rhcoclust)
-plot_rhcoclust (CoClustObj)
-
+# Plot co-cluster
+plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.icc = FALSE)
+# Plot ICC
+plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.icc = TRUE)
 }

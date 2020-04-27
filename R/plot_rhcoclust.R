@@ -1,9 +1,9 @@
 #' @export
-plot_rhcoclust <- function(CoClustObj){
+plot_rhcoclust <- function(CoClustObj,plot.cocluster=FALSE,plot.icc=FALSE){
 
 # Plot results for gene (Row) and compound (column) co-cluster graph
 par(mar=c(4,7,1,3))
-par(mfrow=c(1,2))
+#par(mfrow=c(1,2))
 # The reorganized transformed data matrix to generate co-cluster graph.
 CoClustData <- CoClustObj$CoClsDtMat
 
@@ -34,7 +34,9 @@ UCL_QC <- CoClustObj$UpContLimit
 # co-clusters.
 LCL_QC <- CoClustObj$LowrContLimit
 
-# Display a color image
+# Display a color image for co-cluster
+if (plot.cocluster)
+
 image(CoClustData,
       col = colorRampPalette(c("white","gray","black"),space = "rgb")(300),
       axes = FALSE,
@@ -68,6 +70,7 @@ image.plot(CoClustData,
            horizontal = FALSE)
 
 # Plot graph of QCC for identification of biomarker co-cluster
+if (plot.icc)
 plot(x = GC_cls_MeanMat[,2],
      xlab = "Combination of Row and Column Cluster",
      ylab = "Co-cluster Average",
