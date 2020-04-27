@@ -6,7 +6,7 @@
 #' @export
 rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
 {
-  # Data Transformation using logistic function
+  # Data Transformation using logistic function/ test 
   dataExpr <- 100*(1/(1+exp(-data)))
   dG <- dist((dataExpr), method = method.dist)
   dC <- dist(t(dataExpr), method = method.dist)
