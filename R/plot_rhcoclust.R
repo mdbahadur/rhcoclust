@@ -1,36 +1,36 @@
 #' @export
-plot_rhcoclust <- function(CoClustObj,plot.cocluster=FALSE,plot.icc=FALSE){
+plot_rhcoclust <- function(CoClustObj,plot.cocluster=FALSE,plot.ccim=FALSE){
 
-# Plot results for gene (Row) and compound (column) co-cluster graph
+# Plot results for gene (row) and compound (column) co-cluster graph
 par(mar=c(4,7,1,3))
 #par(mfrow=c(1,2))
-# The reorganized transformed data matrix to generate co-cluster graph.
+# Transformed data matrix (rearranged by RHCOC algorithm) to generate co-cluster graph.
 CoClustData <- CoClustObj$CoClsDtMat
 
-# column and their ranked co-cluster mean in the second cluster.
-GC_cls_MeanMat <- CoClustObj$NGC_cls_MeanMat
+# Row and column cluster and their co-cluster mean. 
+Coclust_MeanMat <- CoClustObj$Coclust_MeanMat
 
-# Shape of points to generate individual control chart.
+# Shape of points to generate control chart for individual measurement. 
 PcmQC <- CoClustObj$pchmark
 
-# Colors to generate individual control chart.
+# Colors to generate control chart for individual measurement.
 ColorQC <- CoClustObj$color
 
-# Colors of genes/row entity clusters to generate co-cluster graph
+# Colors of row entity clusters to generate co-cluster graph.
 colors.genes <- CoClustObj$colorsG
 
-# Colors of DCCs/column entity clusters to generate co-cluster graph
+# Colors of column entity clusters to generate co-cluster graph
 colors.dcc <- CoClustObj$colorsC
 
-# Central Line of individual control chart to generate graph of control chart and to
+# Central line of control chart for individual measurement to generate graph and to
 # identify significant co-clusters.
 CntrLine_QC <- CoClustObj$CentralLine
 
-# Upper Control Limit to generate graph of control chart and to identify significant
+# Upper control limit to generate graph of control chart for individual measurement and to identify significant
 # co-clusters.
 UCL_QC <- CoClustObj$UpContLimit
 
-# Lower Control Limit to generate graph of control chart and to identify significant
+# Lower control limit to generate graph of control chart for individual measurement and to identify significant
 # co-clusters.
 LCL_QC <- CoClustObj$LowrContLimit
 
@@ -69,9 +69,9 @@ image.plot(CoClustData,
            legend.shrink=1,
            horizontal = FALSE)
 
-# Plot graph of QCC for identification of biomarker co-cluster
-if (plot.icc)
-plot(x = GC_cls_MeanMat[,2],
+# Plot graph of control chart for individual measurement for identification of biomarker co-clusters.
+if (plot.ccim)
+plot(x = Coclust_MeanMat[,2],
      xlab = "Combination of Row and Column Cluster",
      ylab = "Co-cluster Average",
      main = "Graph for QCC",
@@ -79,7 +79,7 @@ plot(x = GC_cls_MeanMat[,2],
      pch = PcmQC,
      cex = 1.1,
      col = ColorQC,
-     ylim = c(min(LCL_QC,min(GC_cls_MeanMat[,2]-5)),max(GC_cls_MeanMat[,2]+2)))
+     ylim = c(min(LCL_QC,min(Coclust_MeanMat[,2]-5)),max(Coclust_MeanMat[,2]+2)))
 
 # Add straight lines to a plot
 abline(h = c(UCL_QC,
@@ -89,18 +89,18 @@ abline(h = c(UCL_QC,
        lwd = 3,
        col = "green")
 # Show row names to a plot
-mtext(text = GC_cls_MeanMat[,1],
+mtext(text = Coclust_MeanMat[,1],
       side = 1,
       line = 0.3,
-      at = seq(1:length(GC_cls_MeanMat[,1])),
+      at = seq(1:length(Coclust_MeanMat[,1])),
       las = 2,
       font = 2,
       cex = 1,
       col = "black")
 
 # Add UCL,CL,LCL to a plot
-text(c(length(GC_cls_MeanMat[,1])-0.5,length(GC_cls_MeanMat[,1])-0.5,
-       length(GC_cls_MeanMat[,1])-0.5),
+text(c(length(Coclust_MeanMat[,1])-0.5,length(Coclust_MeanMat[,1])-0.5,
+       length(Coclust_MeanMat[,1])-0.5),
      c(UCL_QC, CntrLine_QC, LCL_QC),
      c("UCL","CL","LCL"),
      font = 4,
