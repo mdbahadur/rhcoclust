@@ -6,7 +6,7 @@
 #' @export
 rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
 {
-  # Data Transformation using logistic function/ test 
+  # Data transformation (expressed in %) using logistic function 
   dataExpr <- 100*(1/(1+exp(-data)))
   dG <- dist((dataExpr), method = method.dist)
   dC <- dist(t(dataExpr), method = method.dist)
@@ -57,16 +57,16 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   # Loop to get row and column clusters according to ranked co-cluster mean
   CoclG <- unique(GclsR)
   CoclC <- unique(CclsR)
-  Co_Gcls <- list()
-  Co_Ccls <- list()
+  rowclust <- list()
+  colclust <- list()
 
   for (i in 1:length(CoclG))
   {
-    Co_Gcls[i] <- HCclsG[CoclG[i]]
+    rowclust[i] <- HCclsG[CoclG[i]]
   }
   for (j in 1:length(CoclC))
   {
-    Co_Ccls[j] <- HCclsC[CoclC[j]]
+    colclust[j] <- HCclsC[CoclC[j]]
   }
   # -----------------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
     {
       NGcls <- c(NGcls, a)
       NCcls <- c(NCcls, b)
-      GCM <- mean(dataExpr[Co_Gcls[[a]],Co_Ccls[[b]]])
+      GCM <- mean(dataExpr[rowclust[[a]],colclust[[b]]])
       GC_CoMean <- c(GC_CoMean, GCM)
     }
   }
@@ -90,16 +90,16 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   NG_Cocls <- NGcls[order(-GC_CoMean)]
   NC_Cocls <- NCcls[order(-GC_CoMean)]
   NGC_Cocls <- paste(NG_Cocls, NC_Cocls, sep=",")
-  NGC_cls_MeanMat <- data.frame(NGC_Cocls, GC_CoMeanR)
+  Coclust_MeanMat <- data.frame(NGC_Cocls, GC_CoMeanR)
 
   # Loop to get colors for the row and column clusters
-  x <- unlist(Co_Gcls)
-  y <- unlist(Co_Ccls)
+  x <- unlist(rowclust)
+  y <- unlist(colclust)
   colorsG <- rep(0,length(x))
   colorsC <- rep(0,length(y))
-  for (k in 1:length(Co_Gcls))
+  for (k in 1:length(rowclust))
   {
-    ind <- which(x %in% Co_Gcls[[k]])
+    ind <- which(x %in% rowclust[[k]])
     if((k %% 2) == 0)
     {
       colorsG[ind] <- "green"
@@ -108,9 +108,9 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
     }
 
   }
-  for (L in 1:length(Co_Ccls))
+  for (L in 1:length(colclust))
   {
-    inds <- which(y %in% Co_Ccls[[L]])
+    inds <- which(y %in% colclust[[L]])
     if((L %% 2) == 0)
     {
       colorsC[inds] <- "green"
@@ -159,10 +159,10 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
 
 
   # return results
-  return(list(NGC_cls_MeanMat = NGC_cls_MeanMat,
+  return(list(Coclust_MeanMat = Coclust_MeanMat,
               CoClsDtMat = CoClsDtMat,
-              Co_Gcls = Co_Gcls,
-              Co_Ccls = Co_Ccls,
+              rowclust = rowclust,
+              colclust = colclust,
               colorsC = colorsC,
               colorsG = colorsG,
               CentralLine = CentralLine,
