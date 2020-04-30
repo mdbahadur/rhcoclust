@@ -3,11 +3,11 @@ Title: Robust Hierarchical Co-Clustering to Identify Significant Co-Cluster of S
 Version: 1.0.0
 Author: Mohammad Nazmol Hasan [aut], Md. Bahadur Badsha [aut,cre] and Md. Nurul Haque Mollah [aut]
 Maintainer: Md. Bahadur Badsha <mdbadsha@uidaho.edu>
-Description: This package performs robust hierarchical co-clustering between row and column entities of a data matrix
-             by reducing the influence of outlying observations. It can be used to explore biomarker genes those are 
-             divided into upregulatory and downregulatory groups by the influence of different chemical compounds groups 
-             more accurately. It can also provide the statistical significance of the identified co-clusters. 
-             See Hasan et al., (2020).
+Description: This package performs robust hierarchical co-clustering between row and column entities of a data matrix in 
+             absence and presence of outlying observations. It can be used to explore important co-clusters consisting of  
+             important samples and their regulatory significant features. For example, this package co-cluster the genes and 
+             DCCs and detect biomarker co-clusters efficiently. The toxicogenomic biomarker genes and their regulatory DCCs 
+             can be explored from these biomarker co-clusters please see Hasan et al., (2020).
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
