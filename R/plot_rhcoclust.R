@@ -70,7 +70,7 @@ image.plot(CoClustData,
 
 # Plot graph of control chart for individual measurement for identification of biomarker co-clusters.
 if (plot.ccim)
-plot(x = Coclust_MeanMat[,2],
+{plot(x = Coclust_MeanMat[,2],
      xlab = "Combination of Row and Column Cluster",
      ylab = "Co-cluster Average",
      main = "Graph for QCC",
@@ -105,4 +105,5 @@ text(c(length(Coclust_MeanMat[,1])-0.5,length(Coclust_MeanMat[,1])-0.5,
      font = 4,
      cex = 1.5,
      col = "blue")
+}
 }
