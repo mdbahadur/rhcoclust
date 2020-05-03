@@ -103,7 +103,11 @@ ColorQC <- CoClustObj$color
 PcmQC <- CoClustObj$pchmark
 
 # Plot co-cluster
+par(mar=c(6,10,3,6)) # Modify if needed
+# mar order: bottom, left, top, and right
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
-# Plot ICC
+
+# Plot CCIM
+# use dev.off() to avoid the figure margin from previous plot
 plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.ccim = TRUE)
 }

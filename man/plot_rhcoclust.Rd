@@ -51,7 +51,12 @@ GCmat <- toxygates_data
 CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # Plot co-cluster
+par(mar=c(6,10,3,6)) # Modify if needed
+# mar order: bottom, left, top, and right
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
-# Plot ICC
+
+# Plot CCIM
+# use dev.off() to avoid the figure margin from previous plot
 plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.ccim = TRUE)
+
 }
