@@ -22,7 +22,7 @@ R> library (devtools)
 # see details below
 R> install_github ("mdbahadur/rhcoclust")
 ```
-rhcoclust depends on several R packages from CRAN and from Bioconductor.  It is likely that some of these packages are not installed on your computer.  If the R package is available on CRAN, you may use the following command line for installation (change _packagename_ to the name of the package to be installed, e.g, bnlearn, pcalg, etc.) before running function `install_github`:
+rhcoclust depends on several R packages from CRAN and from Bioconductor.  It is likely that some of these packages are not installed on your computer.  If the R package is available on CRAN, you may use the following command line for installation (change _packagename_ to the name of the package to be installed, e.g, spam, maps, etc.) before running function `install_github`:
   ```
 R> install.packages ("packagename")
 ```
