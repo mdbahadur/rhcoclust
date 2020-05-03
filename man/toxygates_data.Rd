@@ -2,10 +2,10 @@
 \alias{toxygates_data}
 
 \title{
-A real dataset for 'rhcoc' package
+A real dataset for 'rhcoclust' package
 }
 \description{
-This is the real data matrix that used as an example in 'rhcoc' package.
+This is the real data matrix that used as an example in 'rhcoclust' package.
 }
 
 \details{
@@ -23,9 +23,10 @@ Md Bahadur Badsha (mdbadsha@uidaho.edu)
 1. Nyström-Persson et al., (2013). Toxygates: interactive toxicity analysis on a hybrid microarray and linked data platform. Bioinformatics, Volume 29, Issue 23,Pages 3080–3086.
 }
 \examples{
+# Load library
 library(rhcoclust)
 
-# Load data
+# Load real data
 data("toxygates_data")
 }
 

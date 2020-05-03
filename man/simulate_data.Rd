@@ -35,11 +35,25 @@ Md. Bahadur Badsha <mdbadsha@uidaho.edu>
 }
 
 \examples{
+
+# Load library
 library(rhcoclust)
+
+# Number of genes in the simulated data.
 no.gene <- 50
 
+# Numbe of doses of chemical compounds (dcc) in the simulated data.
 no.dcc <- 12
 
 SimulteData <- simulate_data(no.gene,no.dcc)
+
+# A simulated data matrix as generated.
+SimulteData$SimData
+
+# A randomly distributed row and column entity of simulated data.
+SimulteData$SimDataRnd
+
+# A transformed simulated data.
+SimulteData$GCmat
 }
 

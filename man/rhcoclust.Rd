@@ -103,7 +103,7 @@ ColorQC <- CoClustObj$color
 PcmQC <- CoClustObj$pchmark
 
 # Plot co-cluster
-plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.icc = FALSE)
+plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
 # Plot ICC
-plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.icc = TRUE)
+plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.ccim = TRUE)
 }

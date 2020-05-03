@@ -8,7 +8,7 @@ Plot of the 'rhcoclust' objects
 This function used for two plots from output of rhcoclust (i) plot results for gene (row) and compound (column) co-cluster graph, and (ii) plot graph of QCC for identification of biomarker co-cluster.
 }
 \usage{
-plot_rhcoclust(CoClustObj, plot.cocluster = FALSE, plot.icc = FALSE)
+plot_rhcoclust(CoClustObj, plot.cocluster = FALSE, plot.ccim = FALSE)
 }
 
 \arguments{
@@ -18,7 +18,7 @@ Output objects from rhcoclust
 \item{plot.cocluster}{
 To set no plotting as the default for cocluster.
 }
-\item{plot.icc}{
+\item{plot.ccim}{
 To set no plotting as the default for icc.
 }
 
@@ -51,7 +51,7 @@ GCmat <- toxygates_data
 CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # Plot co-cluster
-plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.icc = FALSE)
+plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
 # Plot ICC
-plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.icc = TRUE)
+plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.ccim = TRUE)
 }

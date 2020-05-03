@@ -7,10 +7,10 @@ par(mar=c(4,7,1,3))
 # Transformed data matrix (rearranged by RHCOC algorithm) to generate co-cluster graph.
 CoClustData <- CoClustObj$CoClsDtMat
 
-# Row and column cluster and their co-cluster mean. 
+# Row and column cluster and their co-cluster mean.
 Coclust_MeanMat <- CoClustObj$Coclust_MeanMat
 
-# Shape of points to generate control chart for individual measurement. 
+# Shape of points to generate control chart for individual measurement.
 PcmQC <- CoClustObj$pchmark
 
 # Colors to generate control chart for individual measurement.
@@ -36,7 +36,6 @@ LCL_QC <- CoClustObj$LowrContLimit
 
 # Display a color image for co-cluster
 if (plot.cocluster)
-
 image(CoClustData,
       col = colorRampPalette(c("white","gray","black"),space = "rgb")(300),
       axes = FALSE,
