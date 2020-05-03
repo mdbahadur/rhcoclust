@@ -31,13 +31,8 @@ The following Bioconductor packages also need to be installed before running fun
   ```
 R> if (!requireNamespace ("BiocManager", quietly = TRUE))
   install.packages ("BiocManager")
-R> BiocManager::install ('AnnotationDbi')
-R> BiocManager::install ('GO.db')
-R> BiocManager::install ('graph')
-R> BiocManager::install ('impute')
-R> BiocManager::install ('preprocessCore')
-R> BiocManager::install ('RBGL')
-R> BiocManager::install ('Rgraphviz')
+R> BiocManager::install ('spam')
+R> BiocManager::install ('maps')
 ```
 ### 2. Installation from the source of a released package.
 
