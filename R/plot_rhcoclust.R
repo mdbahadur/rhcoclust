@@ -36,7 +36,7 @@ LCL_QC <- CoClustObj$LowrContLimit
 
 # Display a color image for co-cluster
 if (plot.cocluster)
-image(CoClustData,
+{image(CoClustData,
       col = colorRampPalette(c("white","gray","black"),space = "rgb")(300),
       axes = FALSE,
       main="Co-cluster graph")
@@ -67,7 +67,7 @@ image.plot(CoClustData,
            xpd = TRUE,
            legend.shrink=1,
            horizontal = FALSE)
-
+}
 # Plot graph of control chart for individual measurement for identification of biomarker co-clusters.
 if (plot.ccim)
 {plot(x = Coclust_MeanMat[,2],
