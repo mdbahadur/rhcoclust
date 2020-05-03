@@ -1,12 +1,12 @@
 #' @importFrom stats cutree dist hclust rnorm
 #' @importFrom fields image.plot
 #' @importFrom grDevices colorRampPalette
-#' @importFrom graphics abline image mtext par plot text
+#' @importFrom graphics abline image mtext par plot text title
 
 #' @export
 rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
 {
-  # Data transformation (expressed in %) using logistic function 
+  # Data transformation (expressed in %) using logistic function
   dataExpr <- 100*(1/(1+exp(-data)))
   dG <- dist((dataExpr), method = method.dist)
   dC <- dist(t(dataExpr), method = method.dist)
@@ -137,8 +137,8 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   # Limits caculation for individual control charts
   CentralLine <- mean(GC_CoMeanR)
   Std.Dv <- mean(mr)/1.128
-  UpContLimit <- mean(GC_CoMeanR)+3*Std.Dv
-  LowrContLimit <- mean(GC_CoMeanR)-3*Std.Dv
+  UpContLimit <- mean(GC_CoMeanR) + 3*Std.Dv
+  LowrContLimit <- mean(GC_CoMeanR) - 3*Std.Dv
   # -----------------------------------------------------------------------------------
 
   # Pchmarks and colors for the individual control charts
