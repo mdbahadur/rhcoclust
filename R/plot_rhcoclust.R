@@ -107,11 +107,11 @@ mtext(text = Coclust_MeanMat[,1],
       las = 2,
       font = 2,
       cex = 1,
-        col = "black")
+      col = "black")
 # x-axis
 mtext("Combination of Row and Column Cluster",
       side = 1,
-      line = 2,
+      line = 2.5,
       cex = 1.2)
 # y-axis
 mtext("Co-cluster Average",
@@ -121,7 +121,7 @@ mtext("Co-cluster Average",
 # Title
 title("Graph for CCIM",
       adj = 0.5,
-      line = 0.5)
+      line = 1)
 
 # Add UCL,CL,LCL to a plot
 text(c(length(Coclust_MeanMat[,1])-0.5,length(Coclust_MeanMat[,1])-0.5,
