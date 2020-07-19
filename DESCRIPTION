@@ -7,10 +7,10 @@ Description: Here we performs robust hierarchical co-clustering between row and 
              absence and presence of outlying observations. It can be used to explore important co-clusters consisting of  
              important samples and their regulatory significant features. For example, this package co-cluster the genes and 
              DCCs and detect biomarker co-clusters efficiently. The toxicogenomic biomarker genes and their regulatory DCCs 
-             can be explored from these biomarker co-clusters please see Hasan et al., (2020).
+             can be explored from these biomarker co-clusters please see Hasan et al., 2020 <https://doi.org/10.1101/2020.05.13.094946>.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: stats,fields
+Imports: fields,grDevices,graphics,igraph,stats
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
