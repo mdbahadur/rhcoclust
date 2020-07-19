@@ -19,13 +19,17 @@ rhcoclust(data, rk, ck, method.dist="manhattan", method.hclust="ward.D")
 \value{
 A \link{list} of object that containing the following:
 
-NGC_cls_MeanMat: A data frame containing combination of row and column cluster number in the first column and their ranked co-cluster mean in the second cluster.
+Coclust_MeanMat : A data frame containing combination of row and column cluster number in the first column and their ranked co-cluster mean in the second column. In the first column first number indicates row cluster index and second number indicates column cluster index, respectively.
 
-CoClsDtMat: The reorganized transformed data matrix to generate co-cluster graph.
+CoClsDtMat : The reorganized transformed data matrix to generate co-cluster graph.
 
-Co_Gcls: The gene/row entity clusters.
+NG_Cocls : The index of gene/row names.
 
-Co_Ccls: The column entity clusters.
+NC_Cocls : The index of column names.
+
+rowclust :The gene/row entity clusters.
+
+colclust : The column entity clusters.
 
 colorsG: Colors of genes/row entity clusters to generate co-cluster graph.
 
@@ -42,7 +46,7 @@ color: Colors to generate individual control chart.
 pchmark: Shape of points to generate individual control chart.
 }
 \author{
-Md Bahadur Badsha (mdbadsha@uidaho.edu)
+Md. Bahadur Badsha (mdbadsha@uidaho.edu)
 }
 \description{
 Toxicogenomic studies require co-clustering to identify biomarker genes for the assessment of chemical toxicity from gene expression levels. It is also essential in the drug discovery experiments. However, gene expression datasets are often contaminated by outliers due to several steps involve in the data generating process. This package performs robust hierarchical co-clustering between row and column entities of a data matrix by reducing the influence of outlying observations. It can be used to explore biomarker genes those are divided into upregulatory and downregulatory groups by the influence of different chemical compounds groups more accurately. It can also provide the statistical significance of the identified co-clusters.
@@ -73,10 +77,10 @@ GC_cls_MeanMat <- CoClustObj$NGC_cls_MeanMat
 CoClsDtMat <- CoClustObj$CoClsDtMat
 
 # The gene/row entity clusters.
-Co_Gcls <- CoClustObj$Co_Gcls
+rowclust <- CoClustObj$rowclust
 
 # The column entity clusters.
-Co_Ccls <- CoClustObj$Co_Ccls
+colclust <- CoClustObj$colclust
 
 # Colors of genes/row entity clusters to generate co-cluster graph
 colorsG <- CoClustObj$colorsG
