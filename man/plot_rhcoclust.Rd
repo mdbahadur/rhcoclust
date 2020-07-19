@@ -29,7 +29,11 @@ Plots
 }
 
 \author{
-Md Bahadur Badsha (mdbadsha@uidaho.edu)
+Md. Bahadur Badsha (mdbadsha@uidaho.edu)
+}
+
+\seealso{
+\link{rhcoclust} for generating a graph objects for clustering network
 }
 
 \examples{
