@@ -6,7 +6,7 @@ Development of the R package rhcoclust is at https://github.com/mdbahadur/rhcocl
 
 References:
   
-1. Mohammad Nazmol Hasan, Md. Bahadur Badsha and Md. Nurul Haque Mollah. 
+1. Mohammad Nazmol Hasan, Md. Bahadur Badsha, Md. Nurul Haque Mollah: Robust Hierarchical Co-clustering to Explore Toxicogenomic Biomarkers and Their Regulatory Doses of Chemical Compounds. bioRxiv, 2020.05.13.094946 (2020).
 
 ## Installation
 
