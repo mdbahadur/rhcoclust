@@ -1,7 +1,8 @@
-#' @importFrom stats cutree dist hclust rnorm
 #' @importFrom fields image.plot
 #' @importFrom grDevices colorRampPalette
 #' @importFrom graphics abline image mtext par plot text title
+#' @importFrom igraph graph
+#' @importFrom stats cutree dist hclust rnorm
 
 #' @export
 rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
@@ -88,7 +89,13 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
 
   GC_CoMeanR <- GC_CoMean[order(-GC_CoMean)]
   NG_Cocls <- NGcls[order(-GC_CoMean)]
+  #Row.names <- paste0("R", NG_Cocls) # R indicates row (gene)
+
   NC_Cocls <- NCcls[order(-GC_CoMean)]
+  #Col.names <- paste0("C", NC_Cocls) # C indicates column (compound)
+  #len=1:length(Col.names)
+  #Combine.Row.Col <- sapply(len,function(len) c(Row.names[len],Col.names[len]))
+
   NGC_Cocls <- paste(NG_Cocls, NC_Cocls, sep=",")
   Coclust_MeanMat <- data.frame(NGC_Cocls, GC_CoMeanR)
 
@@ -161,6 +168,8 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   # return results
   return(list(Coclust_MeanMat = Coclust_MeanMat,
               CoClsDtMat = CoClsDtMat,
+              NG_Cocls = NG_Cocls,
+              NC_Cocls = NC_Cocls,
               rowclust = rowclust,
               colclust = colclust,
               colorsC = colorsC,
@@ -169,5 +178,5 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
               UpContLimit = UpContLimit,
               LowrContLimit = LowrContLimit,
               color = color,
-              pchmark = pchmark ))
+              pchmark = pchmark))
 }
