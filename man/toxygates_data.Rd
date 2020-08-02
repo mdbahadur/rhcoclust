@@ -17,7 +17,7 @@ Matrix
 }
 
 \author{
-Md. Bahadur Badsha (mdbadsha@uidaho.edu)
+Md. Bahadur Badsha <badshabio15@gmail.com>
 }
 \references{
 1. Nyström-Persson et al., (2013). Toxygates: interactive toxicity analysis on a hybrid microarray and linked data platform. Bioinformatics, Volume 29, Issue 23,Pages 3080–3086.

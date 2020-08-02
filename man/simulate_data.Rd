@@ -31,7 +31,7 @@ GCmat: Transformed simulated data.
 }
 
 \author{
-Md. Bahadur Badsha <mdbadsha@uidaho.edu>
+Md. Bahadur Badsha <badshabio15@gmail.com>
 }
 
 \examples{

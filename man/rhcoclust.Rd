@@ -46,7 +46,7 @@ color: Colors to generate individual control chart.
 pchmark: Shape of points to generate individual control chart.
 }
 \author{
-Md. Bahadur Badsha (mdbadsha@uidaho.edu)
+Md. Bahadur Badsha <badshabio15@gmail.com>
 }
 \description{
 Toxicogenomic studies require co-clustering to identify biomarker genes for the assessment of chemical toxicity from gene expression levels. It is also essential in the drug discovery experiments. However, gene expression datasets are often contaminated by outliers due to several steps involve in the data generating process. This package performs robust hierarchical co-clustering between row and column entities of a data matrix by reducing the influence of outlying observations. It can be used to explore biomarker genes those are divided into upregulatory and downregulatory groups by the influence of different chemical compounds groups more accurately. It can also provide the statistical significance of the identified co-clusters.
