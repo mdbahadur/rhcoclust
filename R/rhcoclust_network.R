@@ -1,5 +1,5 @@
 #' @export
-rhcoclust.network <- function(CoClustObj,scale.threshold=10)
+rhcoclust_network <- function(CoClustObj,scale.threshold=10)
 {
   # Pre-process row and column names
   Row.names <- paste0("R", CoClustObj$NG_Cocls) # R indicates row

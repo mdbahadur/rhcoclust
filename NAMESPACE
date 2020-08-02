@@ -2,7 +2,7 @@
 
 export(plot_rhcoclust)
 export(rhcoclust)
-export(rhcoclust.network)
+export(rhcoclust_network)
 export(simulate_data)
 importFrom(fields,image.plot)
 importFrom(grDevices,colorRampPalette)
