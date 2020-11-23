@@ -17,7 +17,7 @@ Matrix
 }
 
 \author{
-Md Bahadur Badsha <badshabio15@gmail.com>
+Md Bahadur Badsha <mbbadshar@gmail.com>
 }
 
 \seealso{

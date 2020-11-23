@@ -29,7 +29,7 @@ Plots
 }
 
 \author{
-Md. Bahadur Badsha <badshabio15@gmail.com>
+Md. Bahadur Badsha <mbbadshar@gmail.com>
 }
 
 \seealso{
@@ -48,14 +48,14 @@ data("toxygates_data")
 data("simu_data")
 
 # Data analysis using real data by rhcoclust. Note, for analysis of predefined
-# simulated data use GCmat <- simu_data
-GCmat <- toxygates_data
+# simulated data use data <- simu_data
+data <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
+CoClustObj <- rhcoclust(data, rk = 3, ck = 3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # Plot co-cluster
-par(mar=c(6,10,3,6)) # Modify if needed
+par(mar=c(6, 10, 3, 6)) # Modify if needed
 # mar order: bottom, left, top, and right
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
 

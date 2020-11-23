@@ -25,7 +25,7 @@ Plot
 }
 
 \author{
-Md. Bahadur Badsha <badshabio15@gmail.com>
+Md. Bahadur Badsha <mbbadshar@gmail.com>
 }
 
 
@@ -45,13 +45,13 @@ data("toxygates_data")
 data("simu_data")
 
 # Data analysis using real data by rhcoclust. Note, for analysis of predefined
-# simulated data use GCmat <- simu_data
-GCmat <- toxygates_data
+# simulated data use data <- simu_data
+data <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist= "manhattan", method.hclust = "ward.D")
+CoClustObj <- rhcoclust(data, rk = 3, ck = 3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # Visualization of clustering network plot
-rhcoclust_network(CoClustObj, scale.threshold=10)
+rhcoclust_network(CoClustObj, scale.threshold = 10)
 }
 

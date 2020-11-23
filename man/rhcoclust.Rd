@@ -2,7 +2,7 @@
 \alias{rhcoclust}
 \title{The function for co-clustering sample and feature to explore significant samples and their regulatory features}
 \usage{
-rhcoclust(data, rk, ck, method.dist="manhattan", method.hclust="ward.D")
+rhcoclust(data, rk, ck, method.dist = "manhattan", method.hclust= "ward.D")
 }
 \arguments{
 \item{data}{A data matrix containing data having the characteristics of interval and ratio level of measurement or continuous data}
@@ -46,7 +46,7 @@ color: Colors to generate individual control chart.
 pchmark: Shape of points to generate individual control chart.
 }
 \author{
-Md. Bahadur Badsha <badshabio15@gmail.com>
+Md. Bahadur Badsha <mbbadshar@gmail.com>
 }
 \description{
 Toxicogenomic studies require co-clustering to identify biomarker genes for the assessment of chemical toxicity from gene expression levels. It is also essential in the drug discovery experiments. However, gene expression datasets are often contaminated by outliers due to several steps involve in the data generating process. This package performs robust hierarchical co-clustering between row and column entities of a data matrix by reducing the influence of outlying observations. It can be used to explore biomarker genes those are divided into upregulatory and downregulatory groups by the influence of different chemical compounds groups more accurately. It can also provide the statistical significance of the identified co-clusters.
@@ -63,11 +63,11 @@ data("toxygates_data")
 data("simu_data")
 
 # Data analysis using real data by rhcoclust. Note, for analysis of predefined
-# simulated data use GCmat <- simu_data
-GCmat <- toxygates_data
+# simulated data use data <- simu_data
+data <- toxygates_data
 
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(GCmat, rk=3, ck=3, method.dist= "manhattan", method.hclust = "ward.D")
+CoClustObj <- rhcoclust(data, rk=3, ck=3, method.dist= "manhattan", method.hclust = "ward.D")
 
 # A data frame containing combination of row and column cluster number in the first
 # column and their ranked co-cluster mean in the second cluster.
