@@ -1,8 +1,8 @@
 Package: rhcoclust
 Title: Robust Hierarchical Co-Clustering to Identify Significant Co-Cluster of Samples and their Regulatory Features  
 Version: 1.0.0
-Author: Mohammad Nazmol Hasan [aut], Md. Bahadur Badsha [aut,cre] and Md. Nurul Haque Mollah [aut]
-Maintainer: Md. Bahadur Badsha <badshabio15@gmail.com>
+Author: Mohammad Nazmol Hasan [aut], Md. Bahadur Badsha [aut, cre] and Md. Nurul Haque Mollah [aut]
+Maintainer: Md. Bahadur Badsha <mbbadshar@gmail.com>
 Description: Here we performs robust hierarchical co-clustering between row and column entities of a data matrix in 
              absence and presence of outlying observations. It can be used to explore important co-clusters consisting of  
              important samples and their regulatory significant features. For example, this package co-cluster the genes and 
@@ -11,6 +11,6 @@ Description: Here we performs robust hierarchical co-clustering between row and 
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: fields,grDevices,graphics,igraph,stats
+Imports: fields, grDevices, graphics, igraph, stats, tcR
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
