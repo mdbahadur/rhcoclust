@@ -5,10 +5,10 @@
 #' @importFrom stats cutree dist hclust rnorm
 
 #' @export
-rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.D")
+rhcoclust <- function(data, rk, ck, method.dist = "manhattan", method.hclust = "ward.D")
 {
   # Data transformation (expressed in %) using logistic function
-  dataExpr <- 100*(1/(1+exp(-data)))
+  dataExpr <- 100*( 1 / ( 1 + exp(-data)))
   dG <- dist((dataExpr), method = method.dist)
   dC <- dist(t(dataExpr), method = method.dist)
   # Hierarchical cluster analysis on a set of dissimilarities and methods for analyzing it.
@@ -25,11 +25,11 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   HCclsC <- list()
   for (p in 1:rk)
   {
-    HCclsG[[p]] <- rownames(HCclsMatG)[which(HCclsMatG[,1]==p)]
+    HCclsG[[p]] <- rownames(HCclsMatG)[which(HCclsMatG[, 1] == p)]
   }
   for (q in 1:ck)
   {
-    HCclsC[[q]] <- rownames(HCclsMatC)[which(HCclsMatC[,1]==q)]
+    HCclsC[[q]] <- rownames(HCclsMatC)[which(HCclsMatC[, 1] == q)]
   }
   # -----------------------------------------------------------------------------------
 
@@ -37,9 +37,9 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   Gcls <- NULL
   Ccls <- NULL
   Co_ClsMeanExpr <- NULL
-  for (g in 1:length(HCclsG))
+  for (g in 1 : length(HCclsG))
   {
-    for (c in 1:length(HCclsC))
+    for (c in 1 : length(HCclsC))
     {
       Gcls <- c(Gcls, g)
       Ccls <- c(Ccls, c)
@@ -75,13 +75,13 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   NGcls <- NULL
   NCcls <- NULL
   GC_CoMean <- NULL
-  for (a in 1:length(CoclG))
+  for (a in 1 : length(CoclG))
   {
-    for (b in 1:length(CoclC))
+    for (b in 1 : length(CoclC))
     {
       NGcls <- c(NGcls, a)
       NCcls <- c(NCcls, b)
-      GCM <- mean(dataExpr[rowclust[[a]],colclust[[b]]])
+      GCM <- mean(dataExpr[rowclust[[a]], colclust[[b]]])
       GC_CoMean <- c(GC_CoMean, GCM)
     }
   }
@@ -96,14 +96,14 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
   #len=1:length(Col.names)
   #Combine.Row.Col <- sapply(len,function(len) c(Row.names[len],Col.names[len]))
 
-  NGC_Cocls <- paste(NG_Cocls, NC_Cocls, sep=",")
+  NGC_Cocls <- paste(NG_Cocls, NC_Cocls, sep = ",")
   Coclust_MeanMat <- data.frame(NGC_Cocls, GC_CoMeanR)
 
   # Loop to get colors for the row and column clusters
   x <- unlist(rowclust)
   y <- unlist(colclust)
-  colorsG <- rep(0,length(x))
-  colorsC <- rep(0,length(y))
+  colorsG <- rep(0, length(x))
+  colorsC <- rep(0, length(y))
   for (k in 1:length(rowclust))
   {
     ind <- which(x %in% rowclust[[k]])
@@ -134,31 +134,31 @@ rhcoclust <- function(data, rk, ck, method.dist="manhattan",method.hclust="ward.
 
   # For calculating moving range of co-cluster means to identify biomarker co-clusters
   mr <- NULL
-  for (q in 1:(length(GC_CoMeanR)-1))
+  for (q in 1 : (length(GC_CoMeanR) - 1))
   {
-    mr1 <- abs(GC_CoMeanR[q]-GC_CoMeanR[q+1])
-    mr <- c(mr,mr1)
+    mr1 <- abs(GC_CoMeanR[q]-GC_CoMeanR[ q + 1])
+    mr <- c(mr, mr1)
   }
   # -----------------------------------------------------------------------------------
 
   # Limits caculation for individual control charts
   CentralLine <- mean(GC_CoMeanR)
-  Std.Dv <- mean(mr)/1.128
+  Std.Dv <- mean(mr) / 1.128
   UpContLimit <- mean(GC_CoMeanR) + 3*Std.Dv
   LowrContLimit <- mean(GC_CoMeanR) - 3*Std.Dv
   # -----------------------------------------------------------------------------------
 
   # Pchmarks and colors for the individual control charts
   ind1 <- which(GC_CoMeanR >= UpContLimit)
-  ind2 <- which((GC_CoMeanR >= LowrContLimit)&(GC_CoMeanR <= UpContLimit))
+  ind2 <- which((GC_CoMeanR >= LowrContLimit) & (GC_CoMeanR <= UpContLimit))
   ind3 <- which(GC_CoMeanR <= LowrContLimit)
 
-  color <- rep(0,length(GC_CoMeanR))
+  color <- rep(0, length(GC_CoMeanR))
   color[ind1] <- "red"
   color[ind2] <- "black"
-  color[ind3] <- "red"
+  color[ind3] <- "blue"
 
-  pchmark <- rep(0,length(GC_CoMeanR))
+  pchmark <- rep(0, length(GC_CoMeanR))
   pchmark[ind1] <- 19
   pchmark[ind2] <- 19
   pchmark[ind3] <- 19
