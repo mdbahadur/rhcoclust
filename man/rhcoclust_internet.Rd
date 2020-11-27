@@ -49,7 +49,8 @@ CoClustObj <- rhcoclust(data, rk=3, ck=3, method.dist = "manhattan", method.hclu
 
 # Plot interaction network (internet)
 # use dev.off() to avoid the figure margin from previous plot
-par(mar=c(4,4,4,4)) # please modify when necessary to betst fit for the plot
+# mar order: bottom, left, top, and right
+par(mar=c(5,2,5,2)) # please modify when necessary to betst fit for the plot
 rhcoclust_internet(data, CoClustObj = CoClustObj, plot.internet = TRUE)
 
 }
