@@ -107,7 +107,7 @@ ColorQC <- CoClustObj$color
 PcmQC <- CoClustObj$pchmark
 
 # Plot co-cluster
-par(mar=c(6,10,3,6)) # Modify if needed
+# par(mar=c(6,10,3,6)) # Modify if needed
 # mar order: bottom, left, top, and right
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
 

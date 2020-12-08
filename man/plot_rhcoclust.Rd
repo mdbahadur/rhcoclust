@@ -55,7 +55,7 @@ data <- toxygates_data
 CoClustObj <- rhcoclust(data, rk = 3, ck = 3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # Plot co-cluster
-par(mar=c(6, 10, 3, 6)) # Modify if needed
+# par(mar=c(6, 10, 3, 6)) # Modify if needed
 # mar order: bottom, left, top, and right
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
 
