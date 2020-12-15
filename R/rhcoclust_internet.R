@@ -3,7 +3,7 @@
 #' @importFrom igraph as_edgelist graph_from_edgelist layout_with_sugiyama V
 #' @importFrom tcR reverse.string
 #' @export
-rhcoclust_internet <- function(data, CoClustObj, plot.internet = FALSE)
+rhcoclust_internet <- function(data, CoClustObj, plot.internet = FALSE, cex.nodes = 0.7, edge.width = 1)
 {
 #data <- simu_data[1:30,1:30]
 #data <- toxygates_data
@@ -152,7 +152,7 @@ if (plot.internet == TRUE)
 plot (graph_obj,
       #asp = 1,
       edge.color = color_edges,
-      #edge.width=com_edge_width/200,
+      edge.width = edge.width,
       edge.width = 1,
       #vertex.color=V(graph.1)$color,
       #label.color=c(CoClustObj$colorsC,CoClustObj$colorsG),
@@ -161,16 +161,28 @@ plot (graph_obj,
       layout = cbind(layer,layout$layout[,1]),
       #layout=layer,
       vertex.shape = c("none","circle","none")[layer],
-      vertex.size = c(20,13,25)[layer],
+      vertex.size = c(20,13,25)[layer], #need to control by user
       #vertex.size2=40,
       #vertex.size2=strheight("I") * 2 * 100,
       #vertex.label=10,
-      vertex.label.cex = 0.8,
+      vertex.label.cex = cex.nodes,
       vertex.label.dist = 0,
       vertex.label.degree = 2,
       edge.arrow.size = 0,
       margin = -0.3)
-
+  # Add a legend
+  #legend("topleft",
+  #       legend = c("Up-regulated", "No-regulated","Down-regulated"),
+  #       col = c("red","black","blue"),
+  #       bty = "n",
+  #       pch = c(20,20,20),
+  #       pt.cex = 2,
+  #       cex = 1.2,
+  #       x.intersp = 0.2,
+  #       y.intersp = 0.4,
+  #       text.col = "black",
+  #       horiz = F ,
+  #       inset = c(-0.2, 0))
 }
 return(list(HighValueVar = HighValueVar,
        LowValueVar = LowValueVar))
