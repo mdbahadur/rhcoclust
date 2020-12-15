@@ -2,7 +2,7 @@
 
 rhcoclust function performs robust hierarchical co-clustering between row and column entities of a data matrix by reducing the influence of outlying observations. It can be used to explore biomarker genes those are 
 divided into upregulatory and downregulatory groups by the influence of different chemical compounds groups more accurately. It can also provide the statistical significance of the identified co-clusters.  See Hasan et al., (2020).
-Development of the R package rhcoclust is at https://github.com/mdbahadur/rhcoclust, and official releases are available on CRAN: https://cran.r-project.org/web/packages/rhcoclust/index.html.
+Development of the R package rhcoclust is at https://github.com/mdbahadur/rhcoclust, and official releases are available on CRAN: https://cran.r-project.org/web/packages/rhcoclust/index.html
 
 References:
   
