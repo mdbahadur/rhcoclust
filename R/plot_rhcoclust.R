@@ -1,6 +1,7 @@
 # This is the function for generating plot for rhcoclust objects
 #' @export
-plot_rhcoclust <- function(CoClustObj, plot.cocluster = FALSE, plot.ccim = FALSE){
+#' @importFrom graphics legend
+plot_rhcoclust <- function(CoClustObj, plot.cocluster = FALSE, plot.ccim = FALSE, cex.xaxis = 0.7, cex.yaxis = 0.5){
 
 # Plot results for gene (row) and compound (column) co-cluster graph
 
@@ -46,7 +47,7 @@ mtext(text = rownames(CoClustData),
         line = 0.3,
         at = seq(0, 1, 1 / (nrow(CoClustData) - 1)),
         las = 2,
-        cex = 0.6,
+        cex = cex.xaxis,
         col = colors.genes)
 # Show column names for the image
 mtext(text = colnames(CoClustData),
@@ -54,7 +55,7 @@ mtext(text = colnames(CoClustData),
         line = 0.4,
         at = seq(0, 1, 1 / (ncol(CoClustData) - 1)),
         las = 2,
-        cex = 0.4,
+        cex = cex.yaxis,
         col = colors.dcc)
 # x-axis
 mtext("Row clusters",
@@ -132,5 +133,20 @@ text(c(length(Coclust_MeanMat[, 1]) - 0.5, length(Coclust_MeanMat[, 1]) - 0.5,
      font = 4,
      cex = 1.5,
      col = "blue")
+# Add a legend
+# legend("topleft",
+#       legend = c("Upper-significant", "Insignificant","Down-significant"),
+#      col = c("red","black","blue"),
+#       bty = "n",
+#       pch = c(20,20,20),
+#       pt.cex = 2,
+#       cex = 1.2,
+#       x.intersp = 0.2,
+#       y.intersp = 0.4,
+#       text.col = "black",
+#       horiz = F ,
+#       inset = c(0.4, -0.04))
+
+
 }
 }
