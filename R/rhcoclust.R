@@ -1,7 +1,3 @@
-#' @importFrom fields image.plot
-#' @importFrom grDevices colorRampPalette
-#' @importFrom graphics abline image mtext par plot text title
-#' @importFrom igraph graph
 #' @importFrom stats cutree dist hclust rnorm
 
 #' @export

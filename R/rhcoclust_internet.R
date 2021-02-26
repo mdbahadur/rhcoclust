@@ -1,7 +1,7 @@
 # This is the function for rhcoclust interaction network (internet)
 #' @importFrom utils combn
+#' @importFrom igraph graph
 #' @importFrom igraph as_edgelist graph_from_edgelist layout_with_sugiyama V
-#' @importFrom tcR reverse.string
 #' @export
 rhcoclust_internet <- function(data, CoClustObj, plot.internet = FALSE, cex.nodes = 0.7, edge.width = 1)
 {
@@ -103,7 +103,7 @@ Edges_row_weight <- as.vector(t(Rbind_row))
 
 # col
 Edges_col <- as_edgelist(graph_col)
-Edges_col[, 2] <- reverse.string(Edges_col[,2],2)
+Edges_col[, 2] <- reversestring(Edges_col[,2],2)
 
 Edges_col_weight <- as.vector(t(Rbind_col))
 

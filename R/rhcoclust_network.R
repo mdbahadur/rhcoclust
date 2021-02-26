@@ -23,7 +23,7 @@ rhcoclust_network <- function(CoClustObj, scale.threshold = 10)
        edge.width = CoClustObj$Coclust_MeanMat$GC_CoMeanR / scale.threshold,# Edge width, defaults scale.threshold 10
        edge.arrow.size = 1,                           # Arrow size, defaults to 1
        edge.arrow.width = 1,                          # Arrow width, defaults to 1
-       edge.lty = c("solid"),                           # Line type, could be 0 or “blank”, 1 or “solid”, 2 or “dashed”, 3 or “dotted”, 4 or “dotdash”, 5 or “longdash”, 6 or “twodash”
+       edge.lty = c("solid"),
        #edge.curved=c(rep(0,5), rep(1,5))            # Edge curvature, range 0-1 (FALSE sets it to 0, TRUE to 0.5)
        main="Clustering Network Plot"
   )
