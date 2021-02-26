@@ -1,6 +1,9 @@
 # This is the function for generating plot for rhcoclust objects
+
+#' @importFrom graphics abline image mtext plot text title
+#' @importFrom grDevices colorRampPalette
+#' @importFrom fields image.plot
 #' @export
-#' @importFrom graphics legend
 plot_rhcoclust <- function(CoClustObj, plot.cocluster = FALSE, plot.ccim = FALSE, cex.xaxis = 0.7, cex.yaxis = 0.5){
 
 # Plot results for gene (row) and compound (column) co-cluster graph
