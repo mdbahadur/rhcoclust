@@ -4,7 +4,7 @@
 #' @importFrom grDevices colorRampPalette
 #' @importFrom fields image.plot
 #' @export
-plot_rhcoclust <- function(CoClustObj, plot.cocluster = FALSE, plot.ccim = FALSE, cex.xaxis = 0.7, cex.yaxis = 0.5){
+plot_rhcoclust <- function(CoClustObj, plot.cocluster = FALSE, plot.SCC = FALSE, cex.xaxis = 0.7, cex.yaxis = 0.5){
 
 # Plot results for gene (row) and compound (column) co-cluster graph
 
@@ -86,7 +86,7 @@ image.plot(CoClustData,
              horizontal = FALSE)
 }
 # Plot graph of control chart for individual measurement for identification of biomarker co-clusters.
-if (plot.ccim == TRUE)
+if (plot.SCC == TRUE)
 {
 #par(mar=c(6,10,3,6)) # Modify if needed
 # mar order: bottom, left, top, and right
@@ -97,7 +97,8 @@ plot(x = Coclust_MeanMat[,2],
      pch = PcmQC,
      cex = 1.1,
      col = ColorQC,
-     ylim = c(min(LCL_QC, min(Coclust_MeanMat[, 2] - 5)), max(Coclust_MeanMat[, 2] + 2)))
+     ylim = c(min(LCL_QC, min(Coclust_MeanMat[, 2] - 0.03)), max(Coclust_MeanMat[, 2] + 0.03)))
+  #ylim = c(0-0.02, 1+0.03))
 
 # Add straight lines to a plot
 abline(h = c(UCL_QC, CntrLine_QC, LCL_QC),
@@ -124,7 +125,7 @@ mtext("Co-cluster Average",
       line = 2.5,
       cex = 1.2)
 # Title
-title("Graph for CCIM",
+title("Graph for SCC",
       adj = 0.5,
       line = 1)
 
