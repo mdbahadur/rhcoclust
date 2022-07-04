@@ -3,8 +3,9 @@
 #' @export
 rhcoclust <- function(data, rk, ck, method.dist = "manhattan", method.hclust = "ward.D")
 {
+  data <- as.matrix(data)
   # Data transformation (expressed in %) using logistic function
-  dataExpr <- 100*( 1 / ( 1 + exp(-data)))
+  dataExpr <- 1 / ( 1 + exp(-data))
   dG <- dist((dataExpr), method = method.dist)
   dC <- dist(t(dataExpr), method = method.dist)
   # Hierarchical cluster analysis on a set of dissimilarities and methods for analyzing it.
