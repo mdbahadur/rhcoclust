@@ -57,17 +57,21 @@ library(rhcoclust)
 library(fields)
 
 # Load real data
-data("toxygates_data")
+data("FCGE_Data_GMP")
+data("FCGE_Data_PPARs")
+# Load predefined real data
+# Real data use: data <- FCGE_Data_PPARs
+# Real data use: data <- FCGE_Data_GMP
 
 # Load predefined simulated data
 data("simu_data")
 
-# Data analysis using real data by rhcoclust. Note, for analysis of predefined
-# simulated data use data <- simu_data
-data <- toxygates_data
-
+# simulated data
+data <- simu_data
 # Apply rhcoclust to identify significant co-cluster of samples and their regulatory features
-CoClustObj <- rhcoclust(data, rk=3, ck=3, method.dist= "manhattan", method.hclust = "ward.D")
+CoClustObj <- rhcoclust(data, rk=4, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
+# For real data either FCGE_Data_PPARs or FCGE_Data_GMP
+#CoClustObj <- rhcoclust(data, rk=3, ck=3, method.dist = "manhattan", method.hclust = "ward.D")
 
 # A data frame containing combination of row and column cluster number in the first
 # column and their ranked co-cluster mean in the second cluster.
@@ -109,9 +113,9 @@ PcmQC <- CoClustObj$pchmark
 # Plot co-cluster
 # par(mar=c(6,10,3,6)) # Modify if needed
 # mar order: bottom, left, top, and right
-plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.ccim = FALSE)
+plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.SCC = FALSE)
 
 # Plot CCIM
 # use dev.off() to avoid the figure margin from previous plot
-plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.ccim = TRUE)
+plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.SCC = TRUE)
 }
