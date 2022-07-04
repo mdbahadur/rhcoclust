@@ -1,5 +1,5 @@
 #' @export
-rhcoclust_network <- function(CoClustObj, scale.threshold = 10)
+rhcoclust_network <- function(CoClustObj)
 {
   # Pre-process row and column names
   Row.names <- paste0("R", CoClustObj$NG_Cocls) # R indicates row
@@ -19,8 +19,8 @@ rhcoclust_network <- function(CoClustObj, scale.threshold = 10)
        #edge.color=rep(c("red","pink"),5),           # Edge color
        edge.color = color.edge,
        #vertex.color = rgb(0.8,0.4,0.3,0.8),
-       #edge.width=(CoClustObj$Coclust_MeanMat$GC_CoMeanR/max(CoClustObj$Coclust_MeanMat$GC_CoMeanR))+0.5,
-       edge.width = CoClustObj$Coclust_MeanMat$GC_CoMeanR / scale.threshold,# Edge width, defaults scale.threshold 10
+       edge.width=(CoClustObj$Coclust_MeanMat$GC_CoMeanR/max(CoClustObj$Coclust_MeanMat$GC_CoMeanR))+1.5,
+       #edge.width = CoClustObj$Coclust_MeanMat$GC_CoMeanR / scale.threshold,# Edge width, defaults scale.threshold 10
        edge.arrow.size = 1,                           # Arrow size, defaults to 1
        edge.arrow.width = 1,                          # Arrow width, defaults to 1
        edge.lty = c("solid"),
