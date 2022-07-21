@@ -75,7 +75,7 @@ CoClustObj <- rhcoclust(data, rk=4, ck=3, method.dist = "manhattan", method.hclu
 
 # A data frame containing combination of row and column cluster number in the first
 # column and their ranked co-cluster mean in the second cluster.
-GC_cls_MeanMat <- CoClustObj$NGC_cls_MeanMat
+#GC_cls_MeanMat <- CoClustObj$Coclust_MeanMat
 
 # The reorganized transformed data matrix to generate co-cluster graph.
 CoClsDtMat <- CoClustObj$CoClsDtMat
@@ -113,9 +113,11 @@ PcmQC <- CoClustObj$pchmark
 # Plot co-cluster
 # par(mar=c(6,10,3,6)) # Modify if needed
 # mar order: bottom, left, top, and right
+# please use different values if needed for cex.xaxis and cex.yaxis
+# to adjust xaxis and yaxis text
 plot_rhcoclust (CoClustObj, plot.coclust = TRUE, plot.SCC = FALSE)
 
-# Plot CCIM
+# Plot SCC
 # use dev.off() to avoid the figure margin from previous plot
 plot_rhcoclust (CoClustObj, plot.coclust = FALSE, plot.SCC = TRUE)
 }
