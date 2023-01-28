@@ -21,7 +21,7 @@ simulate_data <- function (no.gene, no.dcc)
   cname <- colnames(SimData)
 
   SimDataRnd <- SimData[sample(nrow(SimData)), sample(ncol(SimData))]
-  GCmat <- 100*(1 / (1 + exp(-(SimDataRnd))))
+  GCmat <- 1*(1 / (1 + exp(-(SimDataRnd))))
 
   return(list(SimData = SimData,
               SimDataRnd = SimDataRnd,
